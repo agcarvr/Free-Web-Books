@@ -1,48 +1,41 @@
 import './App.css';
-import { HashRouter as Router, Route, Switch, Link } from 'react-router-dom'
-import Other from './Other'
-import Home from './Home'
+import {useState} from 'react';
+import { Route, Switch, Link, useLocation, Redirect } from 'react-router-dom';
+import Home from './Components/Home/Home';
+import SearchBar from './Components/SearchBar/SearchBar';
+import SearchResults from './Components/SearchResults/SearchResults';
 
-// Save the Component, key and path in an array of objects for each Route
-// You could write all routes by hand but I'm lazy annd this lets me use
-// the map method to just loop over them and make my routes
-// SWITCH is used so that it only ever matches one route at a time
-// If you don't want to use react router just rewrite the app component to not use it
-
-const routes = [
-  {
-    Component: Other,
-    key: 'Other',
-    path: '/other'
-  },
-  {
-    Component: Other,
-    key: 'Another',
-    path: '/another'
-  },
-  {
-    Component: Home,
-    key: 'Home',
-    path: '/'
+export default function App (props) {
+  const currentLocation = useLocation();
+  const [ isSearching , setIsSearching ] = useState(false);
+  
+  function handleSubmit(event) {
+    event.preventDefault();
+    setIsSearching(true);
   }
-]
-
-export default function App () {
+  
   return (
-    <Router>
+    <div>
       <nav>
-        {routes.map(route => <Link key={route.key} to={route.path}>{route.key}</Link>)}
-      </nav>
-      <Switch>
-        {
-          routes.map(({key, Component, path}) => (
-            <Route
-              key={key}
-              path={path}
-              component={props => <Component {...props} page={key} />}
-              />))
+        {currentLocation.pathname !== "/" &&
+        <Link to='/other'>
+          <SearchBar handleSubmit={handleSubmit}/>
+        </Link>
         }
-      </Switch>
-    </Router>
+        <Link to='/'>
+          <h3>Back To Home</h3>
+        </ Link>
+      </nav>
+      <main>
+        <Switch>
+          <Route exact path="/">{isSearching ? <Redirect to="/searchResults"/> : <Home/>}</Route>
+          {/* <Route exact path='/' render={routerProps => {
+            return <Home {...routerProps} handleSubmit={handleSubmit}/>;
+          }} >
+          </Route> */}
+          <Route path="/searchresults" component={SearchResults}/>;
+        </Switch>
+      </main>
+    </div>
   )
 }
