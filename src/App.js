@@ -7,33 +7,26 @@ import SearchResults from './Components/SearchResults/SearchResults';
 
 export default function App (props) {
   const currentLocation = useLocation();
-  const [ isSearching , setIsSearching ] = useState(false);
-  
-  function handleSubmit(event) {
-    event.preventDefault();
-    setIsSearching(true);
-  }
-  
   return (
     <div>
       <nav>
         {currentLocation.pathname !== "/" &&
         <Link to='/other'>
-          <SearchBar handleSubmit={handleSubmit}/>
+          <SearchBar/>
         </Link>
         }
         <Link to='/'>
           <h3>Back To Home</h3>
         </ Link>
+        <Link to="/searchresults">Search results</Link>
       </nav>
       <main>
         <Switch>
-          <Route exact path="/">{isSearching ? <Redirect to="/searchResults"/> : <Home/>}</Route>
-          {/* <Route exact path='/' render={routerProps => {
-            return <Home {...routerProps} handleSubmit={handleSubmit}/>;
+          <Route exact path='/' render={routerProps => {
+            return <Home {...routerProps}/>;
           }} >
-          </Route> */}
-          <Route path="/searchresults" component={SearchResults}/>;
+          </Route>
+          <Route path="/searchresults" component={SearchResults}/>
         </Switch>
       </main>
     </div>
