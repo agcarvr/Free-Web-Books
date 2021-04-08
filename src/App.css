@@ -21,3 +21,7 @@
 .App-link {
   color: #61dafb;
 }
+
+div > nav {
+  text-decoration: none;
+}
