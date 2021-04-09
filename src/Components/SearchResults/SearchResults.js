@@ -1,13 +1,14 @@
 import BookThumbnail from '../BookThumbnail/BookThumbnail';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function SearchResults({routerProps, bookList}) {
+export default function SearchResults({bookList}) {
     return(
         <div>
-            <h1>This is the search results page</h1>
-            {bookList.map ((book, i) => {
-                console.log(book);
+            {bookList.map ((book) => {
                 return (
-                    <BookThumbnail book={book} key={i} />
+                    <div key={uuidv4()}>
+                        <BookThumbnail book={book} />
+                    </div>
                 )
             })}
         </div>

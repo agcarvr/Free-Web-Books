@@ -22,6 +22,29 @@
   color: #61dafb;
 }
 
-div > nav {
-  text-decoration: none;
+.navBar {
+  display: flex;
+  align-items: center;
+  background-color: rgb(99, 160, 99);
+  margin: 0;
+  height: 75px;
+}
+
+.linkToHome{
+  color: White;
+  text-decoration: underline;
+  margin: 5px;
+}
+
+.searchBar {
+  margin: 5px;
+}
+
+@media screen and (max-width: 700px){
+  .linkToHome{
+    margin: 1px;
+  }
+  .searchBar{
+    margin: 1px;
+  }
 }

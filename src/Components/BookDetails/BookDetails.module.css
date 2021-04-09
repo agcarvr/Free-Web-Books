@@ -1,0 +1,50 @@
+.detailsPage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: black;
+}
+
+.linkList{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.overview{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.indivDetails{
+    display: flex;
+    flex-direction: column;
+}
+
+.cover{
+    height: 400px;
+    width: 250px;
+}
+
+.summary {
+    display: inline;
+}
+.externalLinks {
+    display: Block;
+    text-decoration: underline;
+    color: rgb(13, 235, 13);
+}
+
+@media screen and (min-width: 740px){
+    .overview{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .detailsPage{
+        height: calc(100vh - 75px);
+    }
+}

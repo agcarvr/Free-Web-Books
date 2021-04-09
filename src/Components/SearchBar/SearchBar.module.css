@@ -1,0 +1,26 @@
+.searchBar {
+    padding: 5px;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    background-color: white;
+    border: 1px solid black;
+    max-width: 300px;
+}
+
+.searchBar:focus{
+    padding: 5px;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 12px;
+    background-color: white;
+    border: 1px solid black;
+    max-width: 300px;
+}
+
+.searchButton {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.form{
+    display: flex;
+}
