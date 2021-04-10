@@ -16,11 +16,11 @@
 .overview{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
 }
 
 .indivDetails{
+    margin: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -37,6 +37,7 @@
     display: Block;
     text-decoration: underline;
     color: rgb(13, 235, 13);
+    width: 275px;
 }
 
 @media screen and (min-width: 740px){
