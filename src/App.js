@@ -30,7 +30,7 @@ export default function App () {
       <main>
         <Switch>
 
-          <Route exact path='/' render={() => {
+          <Route exact path="/" render={() => {
             return <Home 
                     setLastSearch={setLastSearch} 
                     setBookList={setBookList}
@@ -46,7 +46,7 @@ export default function App () {
           }}>
           </Route>
 
-          <Route path='/bookdetails/:id' render={routerProps => {
+          <Route path="/bookdetails/:id" render={routerProps => {
             return <BookDetails 
                     routerProps={routerProps} 
                     bookList={bookList} 
