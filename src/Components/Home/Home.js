@@ -7,7 +7,11 @@ export default function Home(props) {
             <h1 className={styles.title}>Free Web Books</h1>
             <h2 className={styles.title}>A Hub For Books In The Public Domain</h2>
             <h4 className={styles.instruct}>Start Searching to Begin</h4>
-            <SearchBar className={styles.searchBar} setBookList={props.setBookList}/>
+            <SearchBar 
+                className={styles.searchBar} 
+                setLastSearch={props.setLastSearch} 
+                setBookList={props.setBookList}
+            />
         </div>
     )
 }
